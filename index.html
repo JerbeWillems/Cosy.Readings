@@ -1,33 +1,205 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Cosy Readings Boekenblog</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cozy Readings - Boekenblog</title>
+  <meta name="description" content="Een charmante boekenblog om leesliefde te delen – van recensies tot verborgen parels." />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  
   <style>
-    body { font-family: Georgia, serif; background: #fdf6f0; color: #333; margin: 2em; }
-    h1 { color: #8e44ad; }
-    article { margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
-    footer { margin-top: 3em; font-size: 0.9em; color: #888; }
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #f9f8f7;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #4b3f72;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin-top: 0.25rem;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #d1c4e9;
+    }
+
+    nav {
+      background-color: #6c5ce7;
+      padding: 0.75rem 2rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #b2bec3;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section.posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    article.post {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    article.post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    }
+
+    article.post h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #4b3f72;
+    }
+    article.post p.excerpt {
+      flex-grow: 1;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    article.post time {
+      font-size: 0.85rem;
+      color: #999;
+    }
+    article.post a.read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #6c5ce7;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    article.post a.read-more:hover {
+      border-color: #6c5ce7;
+    }
+
+    footer {
+      background-color: #4b3f72;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      main {
+        margin: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Cosy Readings Boekenblog </h1>
 
-  <article>
-    <h2>“De zeven zussen” – Lucinda Riley</h2>
-    <p><strong>Gelezen:</strong> April 2025</p>
-    <p>Een meeslepend verhaal vol mysterie en romantiek. Perfect voor op vakantie of tijdens regenachtige avonden...</p>
-  </article>
+  <header>
+    <h1>Cozy Readings</h1>
+    <p>Een charmante boekenblog om leesliefde te delen</p>
+  </header>
 
-  <article>
-    <h2>“Het achtste leven” – Nino Haratischwili</h2>
-    <p><strong>Gelezen:</strong> Maart 2025</p>
-    <p>Een indrukwekkend familie-epos met historische diepgang. Lisa kon dit boek niet wegleggen.</p>
-  </article>
+  <nav aria-label="Hoofdnavigatie">
+    <a href="#home">Home</a>
+    <a href="#reviews">Recensies</a>
+    <a href="#tips">Leestips</a>
+    <a href="#about">Over mij</a>
+  </nav>
+
+  <main>
+    <section id="home" class="posts" aria-label="Recente blogposts">
+      <article class="post">
+        <h2>Recensie: "De verborgen parel"</h2>
+        <p class="excerpt">
+          Een meeslepend verhaal over liefde, verlies en hoop. Deze roman neemt je mee naar een kleine stad vol geheimen...
+        </p>
+        <time datetime="2025-06-20">20 juni 2025</time>
+        <a href="#" class="read-more" aria-label="Lees meer over De verborgen parel">Lees meer →</a>
+      </article>
+
+      <article class="post">
+        <h2>Leestip: 5 boeken voor de zomer</h2>
+        <p class="excerpt">
+          Perfecte boeken om mee te nemen naar het strand of de tuin. Van lichte romans tot spannende thrillers.
+        </p>
+        <time datetime="2025-06-18">18 juni 2025</time>
+        <a href="#" class="read-more" aria-label="Lees meer over 5 boeken voor de zomer">Lees meer →</a>
+      </article>
+
+      <article class="post">
+        <h2>Favoriete auteurs & waarom</h2>
+        <p class="excerpt">
+          Een persoonlijke lijst met schrijvers die elke boekenliefhebber zou moeten ontdekken. Met verrassende inzichten en citaten.
+        </p>
+        <time datetime="2025-06-15">15 juni 2025</time>
+        <a href="#" class="read-more" aria-label="Lees meer over favoriete auteurs">Lees meer →</a>
+      </article>
+    </section>
+
+    <section id="about" style="margin-top: 3rem; max-width: 600px;">
+      <h2>Over deze blog</h2>
+      <p>
+        Cozy Readings is een plek voor iedereen die van lezen houdt. Hier delen we recensies, leestips en verhalen die het lezen extra bijzonder maken.
+      </p>
+      <p>
+        Deze website is gebouwd met liefde en passie voor boeken, en is perfect voor wie nieuwe literaire ontdekkingen wil doen.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    Gepubliceerd door Cosy Readings.
+    &copy; 2025 Cozy Readings — Made with ❤️ by a fellow book lover.
   </footer>
+
 </body>
 </html>
+
